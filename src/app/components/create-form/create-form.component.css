@@ -1,0 +1,17 @@
+h2{
+  border-bottom: 1px solid ;
+
+}
+.myclass{
+  width: 100px;
+  text-decoration: none;
+
+}
+
+.myborder{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid;
+  padding: 20px;
+
+}
