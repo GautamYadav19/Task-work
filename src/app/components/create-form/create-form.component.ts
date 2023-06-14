@@ -26,20 +26,13 @@ export class CreateFormComponent {
   readTasks() {
     this.apiService.getTask().subscribe((data) => {
       this.Tasks = data;
-      console.log(this.Tasks);
     });
   }
   editForm(id: any) {
-    console.log(id);
     this.apiService.getByID(id).subscribe((data) => {
-      console.log(data, 'inside');
-
       this.apiService
         .updateTask(data._id, this.editTask.value)
-        .subscribe((data) => {
-          console.log(this.editTask.value);
-          console.log(data);
-        });
+        .subscribe((data) => {});
     });
   }
   removeTask(id: any) {
@@ -50,7 +43,6 @@ export class CreateFormComponent {
     }
   }
   onSubmit() {
-    console.log(this.taskForm.value);
     this.submitted = true;
     if (!this.taskForm.valid) {
       return false;
@@ -59,9 +51,7 @@ export class CreateFormComponent {
         complete: () => {
           alert('Task added successfully');
         },
-        error(e) {
-          console.log(e);
-        },
+        error(e) {},
       });
     }
   }

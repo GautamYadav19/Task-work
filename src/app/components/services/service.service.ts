@@ -49,7 +49,6 @@ export class ServiceService {
     } else {
       errorMessage = `Error Code:${error.status}\nMessage:${error.message}`;
     }
-    console.log(errorMessage);
     return throwError(() => {
       return errorMessage;
     });

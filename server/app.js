@@ -23,11 +23,8 @@ app.use("/api", taskRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
-  console.error(err.stack);
   res.status(500).json({ message: "Server error" });
 });
 
-app.listen(process.env.PORT || "3000", () => {
-  console.log(`server is running on port ${process.env.PORT || "3000"}`);
-});
+app.listen(process.env.PORT || "3000", () => {});
 module.exports = app;
