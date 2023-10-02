@@ -1,0 +1,64 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-12">
+      <div class="d-flex justify-content-center">
+        <div class="card m-5 p-5">
+          <form class="row g-3" [formGroup]="taskForm" (submit)="onSubmit()">
+            <div class="col-12 col-lg-12 col-md-3">
+              <label class="form-label lead">Title</label>
+              <input type="text" class="form-control" formControlName="title" />
+            </div>
+            <div class="col-lg-12 col-md-6 col-12">
+              <label class="form-label lead">Description</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="description"
+              />
+            </div>
+            <div class="col-12 col-lg-6 col-md-6">
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="status"
+                  id="inlineRadio1"
+                  value="completed"
+                />
+                <label class="form-check-label" for="inlineRadio1"
+                  >completed</label
+                >
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="status"
+                  id="inlineRadio2"
+                  value="pending"
+                />
+                <label class="form-check-label" for="inlineRadio2"
+                  >pending</label
+                >
+              </div>
+            </div>
+
+            <div class="col-12">
+              <button
+                type="submit"
+                class="btn btn-primary"
+                [disabled]="!taskForm.valid"
+              >
+                Edit
+              </button>
+              <button class="btn btn-secondary m-2" routerLink="/home/list">
+                List of task
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

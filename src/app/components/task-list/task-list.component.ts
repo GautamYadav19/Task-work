@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ServiceService } from '../services/service.service';
+
 @Component({
-  selector: 'app-create-form',
-  templateUrl: './create-form.component.html',
-  styleUrls: ['./create-form.component.css'],
+  selector: 'app-task-list',
+  templateUrl: './task-list.component.html',
+  styleUrls: ['./task-list.component.css'],
 })
-export class CreateFormComponent {
+export class TaskListComponent {
   submitted = false;
   Tasks: any = [];
   editTask: any = [];
@@ -30,9 +31,7 @@ export class CreateFormComponent {
   }
   editForm(id: any) {
     this.apiService.getByID(id).subscribe((data) => {
-      this.apiService
-        .updateTask(data._id, this.editTask.value)
-        .subscribe((data) => {});
+      this.apiService.updateTask(data._id, 'completed').subscribe((data) => {});
     });
   }
   removeTask(id: any) {
@@ -40,20 +39,6 @@ export class CreateFormComponent {
       this.apiService.deleteTask(id).subscribe((data: any) => {
         this.Tasks.splice(1);
         this.readTasks();
-      });
-    }
-  }
-  onSubmit() {
-    this.submitted = true;
-    if (!this.taskForm.valid) {
-      return false;
-    } else {
-      return this.apiService.createTask(this.taskForm.value).subscribe({
-        complete: () => {
-          this.readTasks();
-          alert('Task added successfully');
-        },
-        error(e) {},
       });
     }
   }

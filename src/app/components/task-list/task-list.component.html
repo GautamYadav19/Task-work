@@ -1,0 +1,45 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="row mt-5 mb-5">
+    <p *ngIf="Tasks.length <= 0">There is no task right now.</p>
+    <h4 style="text-align: center" *ngIf="Tasks.length > 0">List of tasks</h4>
+    <div class="d-flex justify-content-end">
+      <button
+        class="btn btn-outline-secondary m-2"
+        routerLink="/home/createtask"
+      >
+        Add Task
+      </button>
+    </div>
+    <hr />
+    <div class="row m-5 d-flex justify-content-evenly">
+      <div
+        *ngFor="let task of Tasks"
+        class="card text-center shadow p-3 m-3 bg-white rounded"
+        style="width: 25rem"
+      >
+        <div class="card-body">
+          <div (click)="removeTask(task._id)" class="cross-icon">
+            <span class="cross-icon-sign">&#x274C;</span>
+          </div>
+          <h5 class="card-header">
+            {{ task.title }}
+            <span class="status"
+              >({{
+                task.status === "completed" ? "completed" : "pending"
+              }})</span
+            >
+          </h5>
+          <p class="card-text text-shadow">{{ task.description }}</p>
+          <span
+            style="padding: 5px"
+            class="edit"
+            [routerLink]="'/home/task/edit/' + task._id"
+          >
+            <button type="button" class="btn btn-success w-25">Edit</button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

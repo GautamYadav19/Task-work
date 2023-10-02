@@ -1,0 +1,52 @@
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.text-shadow{
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+  font-size: 21px;
+}
+
+
+.plus-sign{
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+background: lightblue;
+border-radius: 50%;
+width: 80px;
+  height: 80px;
+
+}
+.plus-sign-text{
+  position: relative;
+  left: 0%;
+  top: 8%;
+  font-size: 38px;
+
+}
+
+.icon-img-add-task{
+  position: relative;
+  left: 1%;
+  top: -12%;
+  height: 75px;
+}
+.icon-img{
+  height: 50px
+}
+.plus-sign-text-img{
+  position: relative;
+  left: 5px;
+  top: 12px;
+  height: 650px;
+}
+.card{
+  border: 0;
+}
